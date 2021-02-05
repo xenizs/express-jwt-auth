@@ -2,6 +2,7 @@
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import express from 'express';
+import errorHandler from './utilities/error-handler';
 
 const app = express();
 dotenv.config();
@@ -14,6 +15,7 @@ app.set('json spaces', 2);
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use(errorHandler);
 
 //start server
 app.listen(app.get('port'), () => {
