@@ -1,0 +1,29 @@
+{
+  "name": "express-jwt-auth",
+  "version": "1.0.0",
+  "description": "Template project for express js for authentication, authorization and session management with JWT.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "npx nodemon --watch ./src ./src/index.ts",
+    "build": "npx tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xenizs/express-jwt-auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xenizs/express-jwt-auth/issues"
+  },
+  "homepage": "https://github.com/xenizs/express-jwt-auth#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  }
+}
