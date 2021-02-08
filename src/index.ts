@@ -3,7 +3,10 @@ import morgan from 'morgan';
 import dotenv from 'dotenv';
 import express from 'express';
 import errorHandler from './utilities/error-handler';
+import 'dotenv/config'
+import './config/db'
 
+console.log(process.env.DB_URI || '');
 const app = express();
 dotenv.config();
 
