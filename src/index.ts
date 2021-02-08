@@ -5,6 +5,7 @@ import express from 'express';
 import errorHandler from './utilities/error-handler';
 import 'dotenv/config';
 import './config/db';
+import userRoute from './routes/user.route';
 
 const app = express();
 dotenv.config();
@@ -18,6 +19,9 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(errorHandler);
+
+//routes
+app.use(userRoute);
 
 //start server
 app.listen(app.get('port'), () => {
