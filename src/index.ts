@@ -18,10 +18,12 @@ app.set('json spaces', 2);
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
-app.use(errorHandler);
 
 //routes
 app.use(userRoute);
+
+//error handler middleware
+app.use(errorHandler);
 
 //start server
 app.listen(app.get('port'), () => {

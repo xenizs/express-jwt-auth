@@ -1,21 +1,21 @@
 class ApiError{
-    msg : string;
+    msg : any;
     code: number;
     
-    constructor(msg: string, code: number){
+    constructor(msg: any, code: number){
         this.msg = msg;
         this.code = code;
     }
 
-    static internal(msg: string) : ApiError {
+    static internal(msg: any) : ApiError {
         return new ApiError(msg, 500);
     }
 
-    static badRequest(msg: string) : ApiError {
+    static badRequest(msg: any) : ApiError {
         return new ApiError(msg, 400);
     }
 
-    static notFound(msg: string) : ApiError {
+    static notFound(msg: any) : ApiError {
         return new ApiError(msg, 404);
     }
 }
