@@ -1,8 +1,16 @@
+import {NextFunction, Request, Response} from 'express';
+import ApiError from '../utilities/error-api';
 import User from '../models/user.model';
-import {Request, Response} from 'express';
 
-const signUpController = (req : Request, res: Response) => {
-    return res.send('all good');
+const signUpController = async(req : Request, res: Response, next: NextFunction) => {
+    try{
+        const {email, username, password} = req.body;
+        await User.build({email, username, password}).save();
+    }
+    catch(err){
+        return next(ApiError.internal('something went wrong'));
+    }
+    return res.send('signed up successfully');
 }
 
 export {signUpController};
