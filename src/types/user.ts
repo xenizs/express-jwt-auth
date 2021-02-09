@@ -3,7 +3,8 @@ interface IUser<JWT = IJWTSession> {
     username: string,
     email: string,
     password: string,
-    JWTSession?: JWT
+    JWTSession?: JWT,
+    id?: string
 }
 
 interface IJWTSession{
