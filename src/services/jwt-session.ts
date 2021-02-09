@@ -10,4 +10,11 @@ const createRefreshToken = (payload: string | object) => {
     return jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET || '', { expiresIn: '15778800000ms' });
 }
 
-export {createAcessToken, createRefreshToken};
+const saveRefreshToken = (user : any, refreshToken: string) => {
+    const refreshTokens : Array<string> = user.JWTSession.refreshTokens;
+    refreshTokens.push(refreshToken);
+    user.JWTSession.refreshTokens = refreshTokens;
+    return user.save();
+}
+
+export {createAcessToken, createRefreshToken, saveRefreshToken};

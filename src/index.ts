@@ -7,6 +7,7 @@ import 'dotenv/config';
 import './config/db';
 import userRoute from './routes/user.route';
 import protectedRoute from './routes/protected.route';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 dotenv.config();
@@ -19,6 +20,7 @@ app.set('json spaces', 2);
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use(cookieParser());
 
 //routes
 app.use(userRoute);
