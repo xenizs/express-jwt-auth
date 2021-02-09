@@ -13,4 +13,8 @@ const signUpController = async(req : Request, res: Response, next: NextFunction)
     return res.send('signed up successfully');
 }
 
-export {signUpController};
+const signInController = async(req : Request, res: Response, next: NextFunction) => {
+    return res.send('signed in successfully');
+}
+
+export {signUpController, signInController};
