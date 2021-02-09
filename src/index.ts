@@ -6,6 +6,7 @@ import errorHandler from './utilities/error-handler';
 import 'dotenv/config';
 import './config/db';
 import userRoute from './routes/user.route';
+import protectedRoute from './routes/protected.route';
 
 const app = express();
 dotenv.config();
@@ -21,6 +22,7 @@ app.use(express.json());
 
 //routes
 app.use(userRoute);
+app.use(protectedRoute);
 
 //error handler middleware
 app.use(errorHandler);

@@ -9,7 +9,7 @@ const authentication = async (req: Request, res: Response, next: NextFunction) =
         if(!user)
             return next(ApiError.badRequest('invalid email or password'));
         if(user.validatePassword(req.body.password)){
-            req.user = user
+            req.user = user;
             return next();
         }
         return next(ApiError.badRequest('invalid email or password'));
