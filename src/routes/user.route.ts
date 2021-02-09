@@ -1,8 +1,8 @@
 import {Router} from 'express';
 import {signUpController, signInController} from '../controllers/user.controller';
-import validateDTO from '../middlewares/validate-dto';
-import signupDTO from '../middlewares/signup-dto';
-import signinDTO from '../middlewares/signin-dto';
+import validateDTO from '../dtos/validate-dto';
+import signupDTO from '../dtos/signup-dto';
+import signinDTO from '../dtos/signin-dto';
 import alreadySignedUpValidation from '../middlewares/already-signed-up-validation';
 import checkPassword from '../middlewares/check-password-validation';
 
