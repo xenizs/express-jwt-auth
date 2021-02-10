@@ -3,6 +3,7 @@
 Template project for express js for authentication, authorization and session management with JWT.
 
 ## User model
+
 ```typescript
 {
   username: {type: String, unique: true},
@@ -11,6 +12,14 @@ Template project for express js for authentication, authorization and session ma
   JWTSession: {refreshTokens: []}
 }
 ```
+
+## Routes
+
+| Method | Path         | Desc                 |
+|--------|--------------|----------------------|
+| POST   | /user/signup | create user          |
+| POST   | /user/signin | login user           |
+| GET    | /protected   | protected mock route |
 
 ## How the flow works
 
