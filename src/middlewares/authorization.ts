@@ -29,7 +29,7 @@ const authorizeRefreshToken = async (req: Request, res :Response, next: NextFunc
 
     try{
         const user = await getUserRefreshTokens(payload.userId);
-        req.user = user;
+        req.user = user!;
         return authorizeRefreshTokens(req, res, next);
     }
     catch(error){

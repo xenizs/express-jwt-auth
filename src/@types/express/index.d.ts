@@ -1,7 +1,10 @@
 import {Request} from "express";
+import {IUserDocument} from '../../types/user';
 
-declare module 'express' {
-  interface Request {
-    user?: any;
+declare global {
+  namespace Express {
+    interface Request {
+      user: IUserDocument
+    }
   }
 }

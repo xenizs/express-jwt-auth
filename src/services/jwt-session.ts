@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import {IUserDocument} from '../types/user';
 
 const createAcessToken = (payload: string | object) => {
     //expires in 15min
@@ -10,7 +11,7 @@ const createRefreshToken = (payload: string | object) => {
     return jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET || '', { expiresIn: '15778800000ms' });
 }
 
-const saveRefreshToken = (user : any, refreshToken: string) => {
+const saveRefreshToken = (user : IUserDocument, refreshToken: string) => {
     const refreshTokens : Array<string> = user.JWTSession.refreshTokens;
     refreshTokens.push(refreshToken);
     user.JWTSession.refreshTokens = refreshTokens;

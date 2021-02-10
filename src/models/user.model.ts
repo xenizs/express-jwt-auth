@@ -10,22 +10,12 @@ and then you do a interface for yourself for type checking when creating your do
 Reason: You have to take care of it as you have a model with custom properties.
 */
 
-/* extends Document as it is requested on Schema generic type */
-interface IUserDocument extends Document {
-    username: string,
-    email: string,
-    password: string,
-    JWTSession: userType.IJWTSession,
-    genPassword(password: string): string,
-    validatePassword(password: string): boolean
-}
-
 /*Model interface for typescript and mongoose to understand the propeties of our model */
-interface IUserModel extends Model<IUserDocument>{
-  build(user: userType.IUser): IUserDocument;
+interface IUserModel extends Model<userType.IUserDocument>{
+  build(user: userType.IUser): userType.IUserDocument;
 }
 
-const userSchema = new Schema<IUserDocument>({
+const userSchema = new Schema<userType.IUserDocument>({
   username: {type: String, unique: true},
   email: {type: String, unique: true},
   password: {type: String},
@@ -49,13 +39,13 @@ userSchema.statics.build = (user : userType.IUser) => {
   return new User(user);
 }
 
-userSchema.pre<IUserDocument>("save", function(next) {
+userSchema.pre<userType.IUserDocument>("save", function(next) {
     if (this.isModified("password")) {
       this.password = this.genPassword(this.password);
     }
     next();
 });
 
-const User = model<IUserDocument, IUserModel>('User', userSchema);
+const User = model<userType.IUserDocument, IUserModel>('User', userSchema);
 
 export default User;
